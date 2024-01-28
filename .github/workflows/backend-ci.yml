@@ -1,0 +1,24 @@
+name: Java CI with Gradle
+
+on:
+  pull_request:
+    branches: [ "dev", "main" ]
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-22.04
+
+    steps:
+    - uses: actions/checkout@v4.1.1
+    - uses: actions/setup-java@v3
+      with:
+        java-version: '17'
+        distribution: 'correto'
+        cache: 'gradle'
+    - name: Build with Gradle
+      uses: gradle/gradle-build-action@v2.12.0
+      with:
+        arguments: build
+
+    - run: ./gradlew build
