@@ -14,7 +14,6 @@ jobs:
     - uses: actions/setup-java@v3
       with:
         java-version: '17'
-        distribution: 'correto'
         cache: 'gradle'
     - name: Build with Gradle
       uses: gradle/gradle-build-action@v2.12.0
